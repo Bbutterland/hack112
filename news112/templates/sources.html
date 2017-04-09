@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<title>News Sources</title>
+
+<!-- Styles --> 
+<style style="text/css">
+.ScrollingText {
+ height: 50px;  
+ overflow: hidden;
+ position: relative;
+}
+.ScrollingText h4 {
+ font-size: 20px;
+ color: black;
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ margin: 0;
+ line-height: 50px;
+ text-align: left;
+ /* Starting position */
+ -moz-transform:translateX(100%);
+ -webkit-transform:translateX(100%);    
+ transform:translateX(100%);
+ /* Apply animation to this element */  
+ -moz-animation: ScrollingText 25s linear infinite;
+ -webkit-animation: ScrollingText 25s linear infinite;
+ animation: ScrollingText 25s linear infinite;
+}
+/* Move it (define the animation) */
+@-moz-keyframes ScrollingText {
+ 0%   { -moz-transform: translateX(100%); }
+ 100% { -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes ScrollingText {
+ 0%   { -webkit-transform: translateX(100%); }
+ 100% { -webkit-transform: translateX(-100%); }
+}
+@keyframes ScrollingText {
+ 0%   { 
+ -moz-transform: translateX(100%); /* Firefox bug fix */
+ -webkit-transform: translateX(100%); /* Firefox bug fix */
+ transform: translateX(100%);       
+ }
+ 100% { 
+ -moz-transform: translateX(-100%); /* Firefox bug fix */
+ -webkit-transform: translateX(-100%); /* Firefox bug fix */
+ transform: translateX(-100%); 
+ }
+}
+</style>
+
+<!-- HTML -->   
+<div class="ScrollingText">
+<h4>News sourced from BBC News, Bloomberg, BuzzFeed, CNN, CNBC, BUSINESS INSIDER, Entertainment Weekly, etc. 
+</h4>

@@ -1,0 +1,168 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>News Hack</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    </head>
+
+    <body>
+        <!-- <img src="http://www.kosbie.net/cmu/dkosbie.jpg" alt="kosbie" height="40" width="100" float="left"/> -->
+        <h1 id="page-title">NewsHack</h1>
+
+        <div class="row">
+            <div class="col-xs-1 col-md-2">
+                <a href="#" class="thumbnail">
+                    <img src=http://www.kosbie.net/cmu/dkosbie.jpg alt="bbc"></a>
+            </div>
+        </div> 
+
+        <h3 id="sub-title">    
+            Hello, Hack112! You should code, eat, sleep, exercies, and read news.
+        </h3>
+
+        <!--<p id='description'>
+            Please type a country you'd like to search news for.
+        </p> -->
+
+        <!--<div id="googlemap">
+            {% include "geocode.html" %}    
+        </div>
+        -->
+
+        <!-- <form class="navbar-form navbar-left" role="search" id="navBarSearchForm">
+            <style>
+                #navBarSearchForm input[type=text]{width:430px;}
+            </style>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Type a country you'd like to search news for.">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form> -->
+
+
+    <!-- code modified from google maps api--> 
+<!--In particular, this link:https://developers.google.com/maps/documentation/javascript/examples/infowindow-simple-->
+
+
+    <html>
+      <head>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+        <meta charset="utf-8">
+        <title>Info windows</title>
+        <style>
+          /* Always set the map height explicitly to define the size of the div
+           * element that contains the map. */
+          #map {
+            height: 400px;
+          }
+          /* Optional: Makes the sample page fill the window. */
+          html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+          }
+        </style>
+      </head>
+      <body>
+        <div id="map"></div>
+        <script>
+
+          // This example displays a marker at the center of Australia.
+          // When the user clicks the marker, an info window opens.
+
+          function initMap() {
+            var uluru = {lat: -25.363, lng: 131.044};
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 4,
+              center: uluru
+            });
+
+            var contentString = '<div id="content">'+
+                '<div id="siteNotice">'+
+                '</div>'+
+                '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+                '<div id="bodyContent">'+
+                '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+                'sandstone rock formation in the southern part of the '+
+                'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
+                'south west of the nearest large town, Alice Springs; 450&#160;km '+
+                '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
+                'features of the Uluru - Kata Tjuta National Park. Uluru is '+
+                'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
+                'Aboriginal people of the area. It has many springs, waterholes, '+
+                'rock caves and ancient paintings. Uluru is listed as a World '+
+                'Heritage Site.</p>'+
+                '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+                'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+                '(last visited June 22, 2009).</p>'+
+                '</div>'+
+                '</div>';
+
+            var infowindow = new google.maps.InfoWindow({
+              content: contentString
+            });
+
+            var marker = new google.maps.Marker({
+              position: uluru,
+              map: map,
+              title: 'Uluru (Ayers Rock)'
+            });
+            marker.addListener('click', function() {
+              infowindow.open(map, marker);
+            });
+          }
+        </script>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRHe0yGEPlMjq2QX3_JwaIcCTmjGVDPEk
+&callback=initMap">
+        </script>
+      </body>
+    </html>
+
+
+        <div class="sources">
+            {% include "sources.html" %}    
+        </div>
+
+        <p class="poweredby"> 
+            Powered by News API and Google API.
+        </p>
+        <!--
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-xs-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Reason 1: You love Instagram</div>
+                        <div class="panel-body">
+                            If you love Instagram then you're going to love us. It's a no brainer
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Reason 2: We are free!</div>
+                        <div class="panel-body">
+                            You might say, "Instagram is free too!" If you said that then you would be right.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Reason 3: We love the environment</div>
+                        <div class="panel-body">
+                            It's true. The environment is great.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </body>
+</html>
+
+<script src="{% static 'js/index.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
