@@ -1,0 +1,28 @@
+#page-title {
+    color: red;
+    padding-left: 20px;
+}
+
+#sub-title {
+    background-color: coral;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+#description {
+    padding-left: 20px;
+    font-size: 20px
+}
+
+.form-group {
+    padding-left: 10px;
+}
+
+.row{
+    padding: 10px;
+}
+.poweredby {
+    background-color: grey;
+    padding-left: 20px;
+    margin-top: 10px;
+}
